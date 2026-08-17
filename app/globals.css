@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper: #FBF9F5;
+  --ink: #12100D;
+}
+
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-feature-settings: "ss01", "cv02", "cv11";
+}
+
+/* Grain overlay - subtle warmth, not distracting */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.035;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* Liquid glass surface */
+.glass {
+  background: rgba(251, 249, 245, 0.55);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 1px 0 rgba(18, 16, 13, 0.04),
+    0 8px 24px -12px rgba(18, 16, 13, 0.12);
+}
+
+.glass-dark {
+  background: rgba(18, 16, 13, 0.55);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 20px 40px -20px rgba(0, 0, 0, 0.5);
+}
+
+.glass-tinted {
+  background: linear-gradient(
+    135deg,
+    rgba(246, 248, 246, 0.7) 0%,
+    rgba(237, 241, 237, 0.5) 100%
+  );
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    0 20px 50px -24px rgba(42, 54, 46, 0.18);
+}
+
+/* Text with soft optical adjustments */
+.display {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-optical-sizing: auto;
+  letter-spacing: -0.028em;
+  line-height: 1.02;
+}
+
+.eyebrow {
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+/* Scroll-edge mask so glass headers meet content softly */
+.edge-mask-b {
+  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+
+/* Custom selection */
+::selection {
+  background: rgba(85, 107, 88, 0.25);
+  color: #12100D;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass, .glass-tinted { background: #F6F3EC; backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .glass-dark { background: #1C1A16; backdrop-filter: none; -webkit-backdrop-filter: none; }
+}
