@@ -55,15 +55,13 @@ const BURIAL_TYPES = [
     title: "Erdbestattung",
     body:
       "Die klassische Beisetzung in einem Sarg auf dem Friedhof — mit einer festen, sichtbaren Grabstätte für die Familie.",
-    image:
-      "https://images.unsplash.com/photo-1602599546533-c4ed7c1af3b7?w=1600&q=80&auto=format&fit=crop",
+    image: "/erdbestattung.png",
   },
   {
     title: "Feuerbestattung",
     body:
       "Die Beisetzung der Urne — auf dem Friedhof, im Ruheforst oder als See­bestattung. Vielfältig und persönlich.",
-    image:
-      "https://images.unsplash.com/photo-1618838614938-f76220e2b813?w=1600&q=80&auto=format&fit=crop",
+    image: "/feuerbestattung.png",
   },
   {
     title: "Naturbestattung",

@@ -84,7 +84,7 @@ export function UeberUns() {
                 className="h-full w-full bg-cover bg-center"
                 style={{
                   backgroundImage:
-                    "url('https://images.unsplash.com/photo-1518709414768-a88981a4515d?w=2000&q=80&auto=format&fit=crop')",
+                    "url('https://images.unsplash.com/photo-1476900164809-ff19b8ae5968?w=2000&q=80&auto=format&fit=crop')",
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink-950/20 via-transparent to-transparent" />
